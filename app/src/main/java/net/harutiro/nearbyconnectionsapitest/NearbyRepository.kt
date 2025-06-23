@@ -51,6 +51,30 @@ class NearbyRepository(
             }
     }
 
+    fun stopAdvertising() {
+        Nearby.getConnectionsClient(activity).stopAdvertising()
+    }
+
+    fun stopDiscovery() {
+        Nearby.getConnectionsClient(activity).stopDiscovery()
+    }
+
+    fun disconnectAll() {
+        val client = Nearby.getConnectionsClient(activity)
+        remoteEndpointIds.forEach { endpointId ->
+            client.disconnectFromEndpoint(endpointId)
+        }
+        remoteEndpointIds.clear()
+        callback.onConnectionStateChanged("全端末と切断")
+    }
+
+    fun resetAll() {
+        stopAdvertising()
+        stopDiscovery()
+        disconnectAll()
+        callback.onConnectionStateChanged("全リセット")
+    }
+
     fun sendData(text: String) {
         val data = text.toByteArray()
         val payload = Payload.fromBytes(data)

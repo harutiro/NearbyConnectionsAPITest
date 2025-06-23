@@ -43,6 +43,14 @@ fun MainScreen(viewModel: MainViewModel) {
                 onClick = { viewModel.sendData(text) }
             ) { Text("データ送信") }
 
+            Button(
+                onClick = { viewModel.disconnectAll() }
+            ) { Text("接続を切る") }
+
+            Button(
+                onClick = { viewModel.resetAll() }
+            ) { Text("リセット") }
+
             Text(viewModel.connectState)
 
             // 受信データリストを表示

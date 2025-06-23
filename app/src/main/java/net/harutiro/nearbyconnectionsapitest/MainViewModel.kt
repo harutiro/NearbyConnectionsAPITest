@@ -18,6 +18,11 @@ class MainViewModel(activity: Activity) : ViewModel(), NearbyRepositoryCallback 
     fun startAdvertise() = repository.startAdvertise()
     fun startDiscovery() = repository.startDiscovery()
     fun sendData(text: String) = repository.sendData(text)
+    fun disconnectAll() = repository.disconnectAll()
+    fun resetAll() {
+        repository.resetAll()
+        receivedDataList = emptyList()
+    }
 
     override fun onConnectionStateChanged(state: String) {
         connectState = state
