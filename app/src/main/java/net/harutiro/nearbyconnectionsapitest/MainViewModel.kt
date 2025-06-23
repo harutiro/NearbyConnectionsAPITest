@@ -12,7 +12,7 @@ class MainViewModel(activity: Activity) : ViewModel(), NearbyRepositoryCallback 
 
     var connectState: String by mutableStateOf("")
         private set
-    var receivedData: String by mutableStateOf("")
+    var receivedDataList: List<Pair<String, String>> by mutableStateOf(emptyList())
         private set
 
     fun startAdvertise() = repository.startAdvertise()
@@ -22,7 +22,7 @@ class MainViewModel(activity: Activity) : ViewModel(), NearbyRepositoryCallback 
     override fun onConnectionStateChanged(state: String) {
         connectState = state
     }
-    override fun onDataReceived(data: String) {
-        receivedData = data
+    override fun onDataReceived(data: String, fromEndpointId: String) {
+        receivedDataList = receivedDataList + (fromEndpointId to data)
     }
 } 

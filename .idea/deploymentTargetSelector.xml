@@ -23,6 +23,16 @@
                 <DeviceId pluginId="PhysicalDevice" identifier="serial=4C040DLAQ0023R" />
               </handle>
             </Target>
+            <Target type="DEFAULT_BOOT">
+              <handle>
+                <DeviceId pluginId="PhysicalDevice" identifier="serial=BH900AML8Z" />
+              </handle>
+            </Target>
+            <Target type="DEFAULT_BOOT">
+              <handle>
+                <DeviceId pluginId="PhysicalDevice" identifier="serial=S612025003612" />
+              </handle>
+            </Target>
           </targets>
         </DialogSelection>
       </SelectionState>

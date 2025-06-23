@@ -44,7 +44,13 @@ fun MainScreen(viewModel: MainViewModel) {
             ) { Text("データ送信") }
 
             Text(viewModel.connectState)
-            Text(viewModel.receivedData)
+
+            // 受信データリストを表示
+            Column(modifier = Modifier.padding(8.dp)) {
+                viewModel.receivedDataList.forEach { (endpointId, data) ->
+                    Text("[$endpointId] $data")
+                }
+            }
 
             Box(
                 modifier = Modifier
